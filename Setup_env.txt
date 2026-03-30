@@ -1,0 +1,41 @@
+*** LỆNH 1: KÍCH HOẠT MÔI TRƯỜNG EPILLID ***
+sudo apt install wget
+
+cd ~
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
+bash miniconda.sh -b -p $HOME/miniconda
+echo 'export PATH="$HOME/miniconda/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+conda --version
+$HOME/miniconda/bin/conda init bash
+source ~/.bashrc
+conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
+conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
+conda create -n epillid python=3.6 -y
+source ~/.bashrc
+conda activate epillid
+
+*** LỆNH 2: CÀI ĐẶT PYTORCH + CUDA ***
+pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 --extra-index-url https://download.pytorch.org/whl/cu111
+
+*** LỆNH 3: CÀI ĐẶT THƯ VIỆN ***
+pip install pandas tqdm azureml azureml.core 
+pip install scikit-learn==0.22.2
+
+*** LỆNH 4: CÀI ĐẶT OPENCV ***
+conda install -c conda-forge opencv
+
+*** LỆNH 5: CÀI ĐẶT imgaug ***
+conda install -c conda-forge imgaug
+
+*** LỆNH 6: LỆNH CUỐI ***
+export AZUREML_DEPRECATE_WARNING=False
+export OMP_NUM_THREADS=1
+export MKL_NUM_THREADS=1
+sudo apt-get update && sudo apt-get install -y libtiff5-dev
+sudo apt update && sudo apt install -y libsm6 libxext6 libxrender-dev 
+conda install -c conda-forge libtiff=4.4.0
+
+
+*** LỆNH TRAIN ***
+ nohup python train_cv.py --appearance_network resnet50 --pooling GAvP --max_epochs 100 --data_root_dir ePillID_data --batch_size 64 --results_dir ./outputs/Resnet50_GAVP_CV --num_workers 0 --add_persp_aug 1 2>&1 > ./fresh_run_$(date +%Y%m%d_%H%M).log 2>&1 &
