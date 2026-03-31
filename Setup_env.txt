@@ -36,5 +36,5 @@ sudo apt update && sudo apt install -y libsm6 libxext6 libxrender-dev
 conda install -c conda-forge libtiff=4.4.0
 
 
-*** LỆNH TRAIN ***
+*** TRAIN ***
  nohup python train_cv.py --appearance_network resnet50 --pooling GAvP --max_epochs 100 --data_root_dir ePillID_data --batch_size 64 --results_dir ./outputs/Resnet50_GAVP_CV --num_workers 0 --add_persp_aug 1 2>&1 > ./fresh_run_$(date +%Y%m%d_%H%M).log 2>&1 &
