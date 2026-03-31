@@ -1,7 +1,7 @@
 <h1 align="center">🔍 Fine-Grained Pill Classification</h1>
 <h3 align="center">Enhanced Few-Shot Pill Identification with Coordinate Attention and Domain Adaptation</h3>
 
-<p align="center">
+<p align="center"> 
   <a href="#"><img src="https://img.shields.io/badge/Python-3.6-blue.svg"/></a>
   <a href="#"><img src="https://img.shields.io/badge/PyTorch-1.9.0-orange.svg"/></a>
   <a href="#"><img src="https://img.shields.io/badge/License-MIT-green.svg"/></a>
