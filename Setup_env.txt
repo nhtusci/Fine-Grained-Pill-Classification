@@ -24,10 +24,10 @@ pip install scikit-learn==0.22.2
 ******
 conda install -c conda-forge opencv
 
-*** LỆNH 5: CÀI ĐẶT imgaug ***
+******
 conda install -c conda-forge imgaug
 
-*** LỆNH 6: LỆNH CUỐI ***
+******
 export AZUREML_DEPRECATE_WARNING=False
 export OMP_NUM_THREADS=1
 export MKL_NUM_THREADS=1
