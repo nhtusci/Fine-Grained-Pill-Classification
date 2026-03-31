@@ -3,7 +3,7 @@ Enhanced Multihead Model với Domain Adaptation
 Wrapper cho EnhancedEmbeddingModel
 """
 import torch
-import torch.nn as nn
+import torch.nn as nn 
 import torch.nn.functional as F
 
 try:
