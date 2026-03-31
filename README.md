@@ -62,7 +62,7 @@ Input Image (224×224)
  Coordinate Attention
         │
         ▼
-   GAvP Pooling → [2048-dim vector]
+   Bilinear Pooling 
         │
    ┌────┴────┐
    │         │
