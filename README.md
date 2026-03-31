@@ -42,6 +42,7 @@ The system uses a **multi-task learning** approach combining:
 
 | Feature | Description |
 |---|---|
+| ⚡ **BCNN Pooling** | Bilinear CNN pooling for richer second-order feature representation |
 | 🔍 **Coordinate Attention** | Spatial attention module (CVPR 2021) focusing on pill imprints and shape |
 | 🔄 **Gradient Reversal Layer** | Domain-invariant feature learning between reference and consumer images |
 | ⚡ **Fast MPN-COV Pooling** | Support for GAvP, MPNCOV, BCNN, CBP pooling strategies |
@@ -62,7 +63,7 @@ Input Image (224×224)
  Coordinate Attention
         │
         ▼
-   Bilinear Pooling 
+   BCNN Pooling → [2048-dim vector] 
         │
    ┌────┴────┐
    │         │
@@ -153,7 +154,7 @@ export MKL_NUM_THREADS=1
 
 nohup python src/train_cv.py \
     --appearance_network resnet50 \
-    --pooling GAvP \
+    --pooling BCNN \
     --max_epochs 100 \
     --data_root_dir ePillID_data \
     --batch_size 64 \
@@ -168,7 +169,7 @@ nohup python src/train_cv.py \
 | Argument | Default | Description |
 |---|---|---|
 | `--appearance_network` | `resnet50` | Backbone architecture |
-| `--pooling` | `GAvP` | Pooling method |
+| `--pooling` | `BCNN` | Pooling method |
 | `--batch_size` | `64` | Batch size |
 | `--max_epochs` | `100` | Maximum training epochs |
 | `--init_lr` | `1e-4` | Initial learning rate |
