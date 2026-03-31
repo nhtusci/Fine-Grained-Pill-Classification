@@ -79,6 +79,10 @@ Embedding  Domain Classifier
 ```
 
 ---
+## Data
+Downloadable from [usuyama/ePillID-benchmark].(https://github.com/usuyama/ePillID-benchmark/releases)
+
+---
 
 ## Project Structure
 ```
